@@ -24,7 +24,7 @@ export default function Register() {
         // validRegister()
     }
     async function validReg() {
-    axios.post('http://localhost:4545/ours/reg', user).then(
+    axios.post('https://ourchatback.herokuapp.com/ours/reg', user).then(
         res => {console.log(res);}
     )
     }

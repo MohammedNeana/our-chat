@@ -13,7 +13,7 @@ export default function Login() {
         console.log(user)
     }
     async function validLogin() {
-        axios.post('http://localhost:4545/ours/login',user).then(res =>{
+        axios.post('https://ourchatback.herokuapp.com/ours/login',user).then(res =>{
             console.log(res);
             //e3mly hena navigate le el home 
         })
