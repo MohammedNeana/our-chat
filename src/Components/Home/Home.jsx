@@ -1,7 +1,14 @@
 import React from 'react'
-
+import style from './Home.module.css'
 export default function Home() {
     return <>
-        <h1>hello form home</h1>
+    <div className={`${style.navbarBg} logo  py-3`}>
+    <h2 className='ms-5'>Chatify</h2>
+    </div>
+    
+    
+    
+    
+    
     </>
 }
