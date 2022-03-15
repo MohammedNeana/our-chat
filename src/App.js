@@ -16,7 +16,7 @@ function App() {
 
   return <>
     <NavBar/>
-    <div className='container'>
+   
     <Routes>
       <Route path='/' element={<Home/>} />
       <Route path='/home' element={<Home/>} />
@@ -24,7 +24,6 @@ function App() {
       <Route path='/register' element={<Register/>} />
       <Route path='*' element={<h1>404</h1>} />
     </Routes>
-    </div>
   </>
 }
 export default App;
