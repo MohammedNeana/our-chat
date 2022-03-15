@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './style.module.css'
 import { useState } from 'react'
-// import axios from 'axios'
+import axios from 'axios'
 
 export default function Register() {
 
@@ -21,11 +21,13 @@ export default function Register() {
         userInfo[e.target.name] = e.target.value
         setuser(userInfo)
         console.log(user);
+        // validRegister()
     }
-    // async function validRegister() {
-    //     const { data } = await axios.post('', user)
-
-    // }
+    async function validReg() {
+    axios.post('http://localhost:4545/ours/reg', user).then(
+        res => {console.log(res);}
+    )
+    }
 
     return <>
         <div className="container">
@@ -40,7 +42,7 @@ export default function Register() {
                 <label htmlFor="password">Password</label>
                 <input onChange={userDate} type="password" className='form-control py-2 my-3' name='password' id='password' />
 
-                <button className={`${style.hoverColor} btn btn-outline-info text-black py-2 px-4 mt-3`}>Submit</button>
+                <button className={`${style.hoverColor} btn btn-outline-info text-black py-2 px-4 mt-3`} onClick={validReg}>Submit</button>
             </form>
         </div>
     </>
