@@ -6,7 +6,7 @@ export default function Register() {
         e.preventDefault()
     }
     return <>
-        <h1 className='py-3'>Register Form</h1>
+        <h1 className='py-3'>Register</h1>
         <form onSubmit={submitRegister}>
         <label htmlFor="user_name">User Name</label>
         <input type="text" className='form-control py-2 my-3' name='first_name' id='first_name' />
@@ -17,7 +17,7 @@ export default function Register() {
         <label htmlFor="password">Password</label>
         <input type="password" className='form-control py-2 my-3' name='password' id='password' />
 
-        <button className={`${style.hoverColor} btn btn-outline-info text-black py-2 px-4`}>Submit</button>
+        <button className={`${style.hoverColor} btn btn-outline-info text-black py-2 px-4 mt-3`}>Submit</button>
         </form>
     </>
 }
