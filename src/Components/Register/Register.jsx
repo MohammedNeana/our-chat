@@ -31,7 +31,7 @@ export default function Register() {
     async function checkUSerData() {
         axios.post('https://ourchatback.herokuapp.com/ours/reg', user).then(
             res => {
-                navigate('/login')
+                navigate('/home')
             }
         ).catch(error => {
             if (error.response) {
