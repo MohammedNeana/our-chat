@@ -1,0 +1,24 @@
+.textBox {
+	resize: none;
+}
+.textBoxPosition {
+	bottom: 10px;
+	width: 65%;
+}
+.sendBtn {
+	bottom: 5px !important;
+	right: 5px;
+	top: 5px;
+	transition: color 0.3s;
+}
+.sendBtn:focus {
+	box-shadow: none !important;
+}
+.sendBtn:hover {
+	color: white !important;
+}
+@media screen and (max-width:992px) {
+    .textBoxPosition {
+        width: 90%;
+    }
+}

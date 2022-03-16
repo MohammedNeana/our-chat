@@ -2,14 +2,3 @@
 .navbarBg {
 	background-color: rgba(0, 0, 0, 0.342);
 }
-.chatImg {
-	width: 60px !important;
-	height: 60px !important;
-	background-color: black;
-}
-.message{
-    background-color: rgba(204, 204, 204, 0.61);
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    border-top-left-radius: 1rem;
-}

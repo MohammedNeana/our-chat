@@ -33,7 +33,9 @@ function App() {
       getUserData()
     }
   }, [])
-
+  useEffect(() => {
+    // console.log(userDate);
+  }, [userData])
 
 
   return <>
