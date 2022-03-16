@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 
 
-export default function NavBar() {
+export default function NavBar(props) {
 
     const currentURL = window.location.href
     const pathname = window.location.pathname
@@ -26,7 +26,7 @@ export default function NavBar() {
                             <Link className="nav-link active" to="/register">Register</Link>
                         </li>
                         <li className="nav-item">
-                            <span className="nav-link active" to="/register">LogOut</span>
+                            <span className="nav-link active" onClick={props.logOut}>LogOut</span>
                         </li>
                     </ul>
                 </div>

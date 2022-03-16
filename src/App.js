@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes , Navigate , useNavigate } from 'react-router-dom';
 import './App.css';
 import Login from './Components/Login/Login';
 import Home from './Components/Home/Home';
@@ -18,7 +18,7 @@ function App() {
   // console.log(pathname);
   const [userData, setUserData] = useState('')
 
-
+  const navigate = useNavigate()
 
   function getUserData() {
     let decodedToken = jwtDecode(localStorage.getItem('userToken'))
@@ -37,12 +37,23 @@ function App() {
     // console.log(userDate);
   }, [userData])
 
+  function ProtectedRoute({ children }) {
+    if (!localStorage.getItem('userToken')) {
+      return <Navigate to='/login' />
+    } else {
+      return children
+    }
+  }
+  function logOut() {
+    localStorage.removeItem('userToken')
+    navigate('/login')
+  }
 
   return <>
-    <NavBar />
+    <NavBar logOut={logOut}/>
     <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/home' element={<Home />} />
+      <Route path='/' element={<ProtectedRoute><Home /></ProtectedRoute>} />
+      <Route path='/home' element={<ProtectedRoute><Home /></ProtectedRoute>} />
       <Route path='/login' element={<Login getUserData={getUserData} />} />
       <Route path='/register' element={<Register />} />
       <Route path='*' element={<h1>404</h1>} />
