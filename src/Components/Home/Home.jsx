@@ -6,11 +6,13 @@ import SendMessage from '../SendMessage/SendMessage'
 import TextBox from '../TextBox/TextBox'
 
 export default function Home() {
+    const userName = localStorage.getItem('userName')
     return <>
         <div className={`${style.navbarBg} logo py-3`}>
-            <h2 className='ms-5'>Our Chat</h2>
+            <h2 className='ms-5 d-inline-block'>Our Chat</h2>
+            <h3 className='ms-5 d-inline-block float-end me-5'>{userName}</h3>
         </div>
-        <div className="container-fluid  bg-danger">
+        <div className="container-fluid">
             <div className="row mx-2 bg-info py-5 ">
                 <div className="col-lg-8">
                     <div className="msgTitle">

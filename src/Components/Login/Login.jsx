@@ -24,9 +24,9 @@ export default function Login(props) {
             console.log(res);
             //e3mly hena navigate le el home
             localStorage.setItem('userToken', res.data.token)
+            localStorage.setItem('userName',res.data.user.username)
             props.getUserData()
             navigate('/home')
-
         })
     }
     // function validtion() {

@@ -46,6 +46,7 @@ function App() {
   }
   function logOut() {
     localStorage.removeItem('userToken')
+    localStorage.removeItem('userName')
     navigate('/login')
   }
 
