@@ -4,6 +4,7 @@ import style from './Home.module.css'
 import MessageCard from '../RecivedMessage/RecivedMessage'
 import SendMessage from '../SendMessage/SendMessage'
 import TextBox from '../TextBox/TextBox'
+import ActiceUsers from '../ActiveUsers/ActiceUsers'
 
 export default function Home() {
     const userName = localStorage.getItem('userName')
@@ -25,7 +26,7 @@ export default function Home() {
                     
                 </div>
                 <div className="col-lg-4">
-                    <h1>hager</h1>
+                    <ActiceUsers/>
                 </div>
             </div>
             <div className="row mx-2 bg-info py-5">
