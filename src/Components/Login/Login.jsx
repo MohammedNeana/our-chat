@@ -4,24 +4,29 @@ import style from '../Register/style.module.css'
 import axios from 'axios'
 import Joi from 'joi'
 import { useNavigate } from 'react-router-dom'
+import jwtDecode from 'jwt-decode'
+import { Link } from 'react-router-dom'
 
-export default function Login() {
+export default function Login(props) {
     let navigate = useNavigate()
-    const [user , setUser] = useState({
-        email:'',
-        password:''
+    const [user, setUser] = useState({
+        email: '',
+        password: ''
     })
     function userData(e) {
-        const userInfo={...user}
-        userInfo[e.target.name] = e.target.value 
+        const userInfo = { ...user }
+        userInfo[e.target.name] = e.target.value
         setUser(userInfo)
         // console.log(user)
     }
     async function sendUserData() {
-        axios.post('https://ourchatback.herokuapp.com/ours/login',user).then(res =>{
+        axios.post('https://ourchatback.herokuapp.com/ours/login', user).then(res => {
             console.log(res);
             //e3mly hena navigate le el home
-            navigate('/home') 
+            localStorage.setItem('userToken', res.data.token)
+            props.getUserData()
+            navigate('/home')
+
         })
     }
     // function validtion() {
@@ -36,18 +41,28 @@ export default function Login() {
         // validtion()
     }
     return <>
-        <div className="container">
-            <h1 className='py-3'>Login</h1>
-            <form onSubmit={submitLogin}>
 
-                <label htmlFor="email">Email</label>
-                <input onChange={userData} type="email" className='form-control py-2 my-3' name='email' id='email' />
+        <div className="container-fluid ">
+            <div className="row py-5">
+                <div className="col-md-6 ">
+                    <div className="reg mx-1 mx-lg-4">
 
-                <label htmlFor="password">Password</label>
-                <input type="password" onChange={userData} className='form-control py-2 my-3' name='password' id='password' />
+                        <h1 className='py-5 mt-5'>Login</h1>
+                        <form onSubmit={submitLogin}>
 
-                <button className={`${style.hoverColor} btn btn-outline-info text-black py-2 px-4 mt-3`} onClick={sendUserData}>Login</button>
-            </form>
+                            <label htmlFor="email">Email</label>
+                            <input onChange={userData} type="email" className='form-control py-2 my-3' name='email' id='email' />
+
+                            <label htmlFor="password">Password</label>
+                            <input type="password" onChange={userData} className='form-control py-2 my-3' name='password' id='password' />
+
+                            <button className={`${style.hoverColor} btn btn-outline-info text-black py-2 px-4 my-3`} onClick={sendUserData}>Login</button>
+                            <Link className={`${style.hoverColor} btn btn-outline-info text-black py-2 px-4 my-3 mx-3 `} to='/register'>Register</Link>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </>
 }
