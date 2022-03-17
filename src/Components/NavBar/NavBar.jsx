@@ -12,17 +12,17 @@ export default function NavBar(props) {
     const [path, setpath] = useState('')
     const [userState, setUserState] = useState('')
 
-    // function checkUserState() {
-    //     if (localStorage.getItem('userName') !== null) {
-    //         setUserState(localStorage.getItem('userName'))
-    //     }
-    // }
-    // useEffect(() => {
-    //     checkUserState()
-    // }, [])
-    // useEffect(() => {
-    //     console.log('ay7aga');
-    // }, [userState])
+    function checkUserState() {
+        if (localStorage.getItem('userName') !== null) {
+            setUserState(localStorage.getItem('userName'))
+        }
+    }
+    useEffect(() => {
+        checkUserState()
+    }, [])
+    useEffect(() => {
+        console.log('ay7aga');
+    }, [userState])
 
 
 
@@ -37,7 +37,7 @@ export default function NavBar(props) {
                     <ul className="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
 
 
-                        {props.userData ? <><li className="nav-item">
+                        {userState ? <><li className="nav-item">
                             <span className="nav-link active" onClick={props.logOut}>LogOut</span>
                         </li></> : <>
                             <li className="nav-item">
