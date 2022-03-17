@@ -10,6 +10,22 @@ export default function NavBar(props) {
     const currentURL = window.location.href
     const pathname = window.location.pathname
     const [path, setpath] = useState('')
+    const [userState, setUserState] = useState('')
+
+    // function checkUserState() {
+    //     if (localStorage.getItem('userName') !== null) {
+    //         setUserState(localStorage.getItem('userName'))
+    //     }
+    // }
+    // useEffect(() => {
+    //     checkUserState()
+    // }, [])
+    // useEffect(() => {
+    //     console.log('ay7aga');
+    // }, [userState])
+
+
+
     return <>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-3">
             <div className="container-fluid">
@@ -19,15 +35,27 @@ export default function NavBar(props) {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to="/login">Login</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link active" to="/register">Register</Link>
-                        </li>
-                        <li className="nav-item">
+
+
+                        {props.userData ? <><li className="nav-item">
                             <span className="nav-link active" onClick={props.logOut}>LogOut</span>
-                        </li>
+                        </li></> : <>
+                            <li className="nav-item">
+                                <Link className="nav-link active" aria-current="page" to="/login">Login</Link>
+                            </li>
+
+
+                            <li className="nav-item">
+                                <Link className="nav-link active" to="/register">Register</Link>
+                            </li>
+
+                        </>
+                        }
+
+
+
+
+
                     </ul>
                 </div>
             </div>

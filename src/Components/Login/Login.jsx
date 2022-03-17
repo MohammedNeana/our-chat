@@ -23,10 +23,12 @@ export default function Login(props) {
         axios.post('https://ourchatback.herokuapp.com/ours/login', user).then(res => {
             console.log(res);
             //e3mly hena navigate le el home
-            localStorage.setItem('userToken', res.data.token)
-            localStorage.setItem('userName',res.data.user.username)
-            props.getUserData()
-            navigate('/home')
+            if (res.status === 200) {
+                localStorage.setItem('userToken', res.data.token)
+                localStorage.setItem('userName', res.data.user.username)
+                props.getUserData()
+                navigate('/home')
+            }
         })
     }
     // function validtion() {

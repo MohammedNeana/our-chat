@@ -31,8 +31,10 @@ export default function Register() {
     async function checkUSerData() {
         axios.post('https://ourchatback.herokuapp.com/ours/reg', user).then(
             res => {
-                localStorage.setItem('userName',res.data.user.username)
-                navigate('/home')
+                if (res.status === 200) {
+                    localStorage.setItem('userName', res.data.user.username)
+                    navigate('/home')
+                }
             }
         ).catch(error => {
             if (error.response) {

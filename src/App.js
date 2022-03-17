@@ -51,7 +51,7 @@ function App() {
   }
 
   return <>
-    <NavBar logOut={logOut}/>
+    <NavBar logOut={logOut} userData={userData}/>
     <Routes>
       <Route path='/' element={<ProtectedRoute><Home /></ProtectedRoute>} />
       <Route path='/home' element={<ProtectedRoute><Home /></ProtectedRoute>} />
