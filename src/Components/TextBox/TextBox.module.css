@@ -1,5 +1,6 @@
 .textBox {
 	resize: none;
+	padding: 0.75rem 1rem 0rem !important;
 }
 .textBoxPosition {
 	bottom: 10px;
@@ -9,13 +10,9 @@
 	bottom: 5px !important;
 	right: 5px;
 	top: 5px;
-	transition: color 0.3s;
 }
 .sendBtn:focus {
 	box-shadow: none !important;
-}
-.sendBtn:hover {
-	color: white !important;
 }
 @media screen and (max-width:992px) {
     .textBoxPosition {

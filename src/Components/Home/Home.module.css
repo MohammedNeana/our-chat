@@ -1,4 +1,9 @@
-
 .navbarBg {
 	background-color: rgba(0, 0, 0, 0.342);
+}
+
+@media screen and (max-width: 992px) {
+	#activeUsers {
+		display: none !important;
+	}
 }

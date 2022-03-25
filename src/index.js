@@ -8,7 +8,6 @@ import 'bootstrap/dist/js/bootstrap.bundle.js'
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
-  
   <BrowserRouter>
     <App />
   </BrowserRouter>,

@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import { Route, Routes , Navigate , useNavigate } from 'react-router-dom';
+import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
 import './App.css';
 import Login from './Components/Login/Login';
 import Home from './Components/Home/Home';
@@ -18,16 +18,23 @@ function App() {
   // console.log(pathname);
   const [userData, setUserData] = useState('')
 
+  function checkPathName() {
+    if (pathname !== '/home') {
+      localStorage.removeItem('userToken')
+      localStorage.removeItem('userName')
+    }
+  }
+  useEffect(() => {
+    checkPathName()
+  }, [])
+  
   const navigate = useNavigate()
-
   function getUserData() {
     let decodedToken = jwtDecode(localStorage.getItem('userToken'))
     setUserData(decodedToken)
     console.log(decodedToken);
-    console.log(userData);
+    // console.log(userData);
   }
-
-
   useEffect(() => {
     if (localStorage.getItem('userToken')) {
       getUserData()
@@ -51,7 +58,7 @@ function App() {
   }
 
   return <>
-    <NavBar logOut={logOut} userData={userData}/>
+    <NavBar logOut={logOut} userData={userData} />
     <Routes>
       <Route path='/' element={<ProtectedRoute><Home /></ProtectedRoute>} />
       <Route path='/home' element={<ProtectedRoute><Home /></ProtectedRoute>} />

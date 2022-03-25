@@ -1,31 +1,49 @@
-import React from 'react'
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
+import axios from 'axios'
+import { useEffect, useState } from 'react';
 import activeUserImg from '../../images/testimonial-2.jpg'
 import style from './style.module.css'
 
 
 export default function ActiceUsers() {
+
+    const myAbortController = new AbortController();
+    console.log(myAbortController);
+    const [activeUsers, setActiveUsers] = useState('')
+
+    async function getavtiveUsers() {
+        axios.get('https://ourchatback.herokuapp.com/ours/users', { signal: myAbortController.signal }).then(res => {
+            console.log(res.data[0].username);
+            setActiveUsers(res.data.splice(3, 8))
+            console.log(activeUsers);
+        })
+    }
+    useEffect(() => {
+        getavtiveUsers()
+    }, [])
+    useEffect(() => {
+    }, [activeUsers])
+
+    useEffect(() => {
+        return () => {
+            myAbortController.abort()
+        }
+    }, [])
+
     return <>
         <ul className='list-unstyled'>
-            <li>
-                <div className="row align-items-center mb-2">
-                    <div className="col-1">
-                    <img src={activeUserImg} className={`${style.activeUserImg} my-3 rounded-circle me-3`} alt="" />
+            {activeUsers ? activeUsers.map((user, index) =>
+                <li key={index} >
+                    <div className="row align-items-center">
+                        <div className="col-1 ">
+                            <img src={activeUserImg} className={`${style.activeUserImg} my-3 rounded-circle me-3`} alt="" />
+                        </div>
+                        <div className="col-9 ps-5">
+                            <h4 className='my-3'>{user.username}</h4>
+                        </div>
                     </div>
-                    <div className="col-9 ms-3">
-                        <h4 className='my-3'>user Name</h4>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div className="row align-items-center mb-2">
-                    <div className="col-1">
-                    <img src={activeUserImg} className={`${style.activeUserImg} my-3 rounded-circle me-3`} alt="" />
-                    </div>
-                    <div className="col-9 ms-3">
-                        <h4 className='my-3'>user Name</h4>
-                    </div>
-                </div>
-            </li>
+                </li>) : ''}
         </ul>
     </>
 }

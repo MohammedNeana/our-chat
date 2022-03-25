@@ -7,3 +7,8 @@ body{
 .nav-item span {
   cursor: pointer;
 }
+@media screen and (min-width: 992px) {
+    .navbar-toggler{
+      display: none !important;
+    }
+}
