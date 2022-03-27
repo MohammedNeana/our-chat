@@ -9,14 +9,12 @@ import style from './style.module.css'
 export default function ActiceUsers() {
 
     const myAbortController = new AbortController();
-    console.log(myAbortController);
     const [activeUsers, setActiveUsers] = useState('')
 
     async function getavtiveUsers() {
         axios.get('https://ourchatback.herokuapp.com/ours/users', { signal: myAbortController.signal }).then(res => {
             console.log(res.data[0].username);
-            setActiveUsers(res.data.splice(3, 8))
-            console.log(activeUsers);
+            setActiveUsers(res.data)
         })
     }
     useEffect(() => {

@@ -22,10 +22,10 @@ export default function Login(props) {
     async function sendUserData() {
         axios.post('https://ourchatback.herokuapp.com/ours/login', user).then(res => {
             console.log(res);
-            //e3mly hena navigate le el home
             if (res.status === 200) {
-                localStorage.setItem('userToken', res.data.token)
-                localStorage.setItem('userName', res.data.user.username)
+                localStorage.setItem('userToken', res.data.token);
+                localStorage.setItem('id', res.data.user._id);
+                localStorage.setItem('userName', res.data.user.username);
                 props.getUserData()
                 navigate('/home')
             }
