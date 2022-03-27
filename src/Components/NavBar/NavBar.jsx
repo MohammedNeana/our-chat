@@ -24,10 +24,7 @@ export default function NavBar(props) {
     useEffect(() => {
         // console.log('ay7aga');
     }, [localStorage.getItem('userName')])
-
-
     const userName = localStorage.getItem('userName')
-
     return <>
 
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-3 ">
@@ -49,7 +46,7 @@ export default function NavBar(props) {
                 </button> */}
             </div>
 
-            <div className="offcanvas offcanvas-end position-fixed overflow-auto" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div className="offcanvas offcanvas-end position-fixed overflow-auto" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div className="offcanvas-header">
                     <ActiceUsers />
                     <button type="button" className="btn-close text-reset align-self-start" data-bs-dismiss="offcanvas" aria-label="Close"></button>

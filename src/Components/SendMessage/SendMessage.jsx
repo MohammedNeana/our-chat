@@ -3,6 +3,7 @@ import style from './SendMessage.module.css'
 import userImg from '../../images/testimonial-2.jpg'
 
 export default function SendMessage() {
+    
     return <>
         <div className="chat mt-5">
             <div className={`float-start`}>
