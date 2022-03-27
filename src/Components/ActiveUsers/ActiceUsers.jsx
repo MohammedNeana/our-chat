@@ -30,7 +30,6 @@ export default function ActiceUsers() {
             myAbortController.abort()
         }
     }, [])
-
     return <>
         <ul className='list-unstyled'>
             {activeUsers ? activeUsers.map((user, index) =>
