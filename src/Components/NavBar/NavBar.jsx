@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
@@ -26,7 +27,6 @@ export default function NavBar(props) {
     }, [localStorage.getItem('userName')])
     const userName = localStorage.getItem('userName')
     return <>
-
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-3 ">
             <div className="d-flex align-items-center w-100" >
                 {/* <Link className="navbar-brand ms-5" to="/home">Navbar</Link> */}
@@ -35,8 +35,8 @@ export default function NavBar(props) {
                 }
                 <ul className="navbar-nav mb-2 mb-lg-0">
                     {localStorage.getItem('userName') ?
-                        <li className="nav-item">
-                            <span className="nav-link active me-lg-5 me-4" onClick={props.logOut}>LogOut</span>
+                        <li className="nav-item" onClick={props.logOut}>
+                            <a href='#' className="nav-link active me-lg-5 me-4">LogOut</a>
                         </li>
                         : ''
                     }

@@ -27,7 +27,7 @@ function App() {
   useEffect(() => {
     checkPathName()
   }, [])
-  
+
   const navigate = useNavigate()
   function getUserData() {
     let decodedToken = jwtDecode(localStorage.getItem('userToken'))
@@ -57,18 +57,18 @@ function App() {
     navigate('/login')
   }
 
-  return <>
-    <NavBar logOut={logOut} userData={userData} />
-    <Routes>
-      <Route path='/' element={<ProtectedRoute><Home /></ProtectedRoute>} />
-      <Route path='/home' element={<ProtectedRoute><Home /></ProtectedRoute>} />
-      <Route path='/login' element={<Login getUserData={getUserData} />} />
-      <Route path='/register' element={<Register />} />
-      <Route path='*' element={<h1>404</h1>} />
-    </Routes>
-  </>
-}
-export default App;
+    return <>
+      <NavBar logOut={logOut} userData={userData} />
+      <Routes>
+        <Route path='/' element={<ProtectedRoute><Home /></ProtectedRoute>} />
+        <Route path='/home' element={<ProtectedRoute><Home /></ProtectedRoute>} />
+        <Route path='/login' element={<Login getUserData={getUserData} />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='*' element={<h1>404</h1>} />
+      </Routes>
+    </>
+  }
+  export default App;
 
 
 
