@@ -26,7 +26,7 @@ export default function Home() {
             eventSource.close()
         )
     }
-    startSSE();
+    // startSSE();
     const [mssg, setMssg] = useState({
         mssg: '',
         user: ''
@@ -43,10 +43,11 @@ export default function Home() {
         // console.log('hello');
     }
     async function sendMssg() {
-        alert("hey");
+        console.log("are we here ?");
         axios.post('http://localhost:4545/ours/mssg', mssg).then(res => {
+            console.log("are we here ?");
             if (res.status === 200) {
-                console.log(res);
+                console.log(res.data.mssg);
                 console.log(mssg.mssg);
             }
         })
