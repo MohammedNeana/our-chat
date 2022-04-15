@@ -15,7 +15,7 @@ export default function Home() {
     const [message, setMessage] = useState([])
 
     async function startSSE() {
-        let eventSource = new EventSource("http://localhost:4545/ours/sse");
+        let eventSource = new EventSource("https://ourchatback.herokuapp.com/ours/sse");
         eventSource.addEventListener('newLogin', e =>
             console.log(e.data)
         )
@@ -44,7 +44,7 @@ export default function Home() {
     }
     async function sendMssg() {
         console.log("are we here ?");
-        axios.post('http://localhost:4545/ours/mssg', mssg).then(res => {
+        axios.post('https://ourchatback.herokuapp.com/ours/mssg', mssg).then(res => {
             console.log("are we here ?");
             if (res.status === 200) {
                 console.log(res.data.mssg);
@@ -53,7 +53,7 @@ export default function Home() {
         })
     }
     async function retriveMssg() {
-        axios.get('http://localhost:4545/ours/mssg', mssg).then(res => {
+        axios.get('https://ourchatback.herokuapp.com/ours/mssg', mssg).then(res => {
             if (res.status === 200) {
                 // console.log(res.data[0].mssg);
                 // console.log(res.data);
@@ -72,7 +72,7 @@ export default function Home() {
                 <i className="fa-solid fa-circle-notch fa-spin fs-1"></i>
             </div>
         </> : <>
-            <div className="container-fluid pt-5">
+            <div className="container-fluid pt-5 ">
                 <div className="row mx-2 pt-5">
                     <div className="col-lg-8">
                     <div className="msgTitle d-flex w-100 justify-content-between">
@@ -91,8 +91,8 @@ export default function Home() {
                         <ActiceUsers />
                     </div>
                 </div>
-                <div className="row mx-2 pt-5">
-                    <div className="col-lg-8">
+                <div className="row mx-2 pt-lg-5 bg-danger">
+                    <div className="col-lg-8 bg-info">
                         <TextBox sendMssg={sendMssg} mssgData={mssgData} />
                     </div>
                 </div>

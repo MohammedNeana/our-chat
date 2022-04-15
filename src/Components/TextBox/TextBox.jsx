@@ -12,7 +12,7 @@ export default function TextBox(props) {
         <div className={`${style.textBoxPosition} position-absolute`}>
             <div className={`position-relative `}>
                 <textarea onChange={props.mssgData} name="mssg" className={`${style.textBox} rounded-pill form-control`} placeholder='Send a message...' ></textarea>
-                <button className={`${style.sendBtn} btn text-dark rounded-pill py-2 px-4 position-absolute`} onClick={props.sendMssg}>Send</button>
+                <button className={`${style.sendBtn} btn text-dark rounded-pill py-2 px-4 position-absolute text-white`} onClick={props.sendMssg}>Send</button>
             </div>
         </div>
     </>
