@@ -15,7 +15,7 @@ export default function Home() {
     const [message, setMessage] = useState([])
 
     async function startSSE() {
-        let eventSource = new EventSource("https://ourchatback.herokuapp.com/ours/sse");
+        let eventSource = new EventSource("http://localhost:4545/ours/sse");
         eventSource.addEventListener('newLogin', e =>
             console.log(e.data)
         )
@@ -43,7 +43,8 @@ export default function Home() {
         // console.log('hello');
     }
     async function sendMssg() {
-        axios.post('https://ourchatback.herokuapp.com/ours/mssg', mssg).then(res => {
+        alert("hey");
+        axios.post('http://localhost:4545/ours/mssg', mssg).then(res => {
             if (res.status === 200) {
                 console.log(res);
                 console.log(mssg.mssg);
@@ -51,7 +52,7 @@ export default function Home() {
         })
     }
     async function retriveMssg() {
-        axios.get('https://ourchatback.herokuapp.com/ours/mssg', mssg).then(res => {
+        axios.get('http://localhost:4545/ours/mssg', mssg).then(res => {
             if (res.status === 200) {
                 // console.log(res.data[0].mssg);
                 // console.log(res.data);
@@ -89,7 +90,7 @@ export default function Home() {
                 </div>
                 <div className="row mx-2 pt-5">
                     <div className="col-lg-8">
-                        <TextBox />
+                        <TextBox sendMssg={sendMssg} mssgData={mssgData} />
                     </div>
                 </div>
             </div>
