@@ -5,6 +5,7 @@
 .textBoxPosition {
 	bottom: 10px;
 	width: 65%;
+	z-index: -1;
 }
 .sendBtn {
 	bottom: 5px !important;

@@ -27,7 +27,7 @@ export default function NavBar(props) {
     }, [localStorage.getItem('userName')])
     const userName = localStorage.getItem('userName')
     return <>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-3 ">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-3 position-fixed w-100 ">
             <div className="d-flex align-items-center w-100" >
                 {/* <Link className="navbar-brand ms-5" to="/home">Navbar</Link> */}
                 {localStorage.getItem('userName') ? <h3 className='ms-lg-5 mb-2 ms-3 d-inline-block text-white float-end me-auto'>{userName}</h3> :

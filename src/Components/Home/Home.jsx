@@ -8,7 +8,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import TextBox from '../TextBox/TextBox'
 import RecivedMessage from '../RecivedMessage/RecivedMessage'
-// import { Scrollbars } from 'react-custom-scrollbars';
+import { Scrollbars } from 'react-custom-scrollbars-2';
 
 export default function Home() {
     const [spinner, setSpinner] = useState(true);
@@ -70,15 +70,17 @@ export default function Home() {
                 <i className="fa-solid fa-circle-notch fa-spin fs-1"></i>
             </div>
         </> : <>
-            <div className="container-fluid">
-                <div className="row mx-2 pt-3">
+            <div className="container-fluid pt-5">
+                <div className="row mx-2 pt-5">
                     <div className="col-lg-8">
-                        <div className="msgTitle d-flex w-100 justify-content-between">
+                    <div className="msgTitle d-flex w-100 justify-content-between">
                             <h2 className='text-center border-bottom pb-lg-2 w-100 pb-3'>Message Group</h2>
                             <button className="navbar-toggler navbar-dark bg-dark mb-2 p-2 mb-2 ms-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                                 <span className='text-white'>Users</span>
                             </button>
                         </div>
+                    </div>
+                    <div className="col-lg-8 scroll-box mssg-height">
                         <RecivedMessage msgg={message} />
                         {/* <SendMessage /> */}
                         <SendMessage />
@@ -96,4 +98,3 @@ export default function Home() {
         </>}
     </>
 }
-

@@ -36,10 +36,10 @@ export default function ActiceUsers() {
                 <i className="fa-solid fa-circle-notch fa-spin fs-1"></i>
             </div>
         </> : <>
-            <ul className='list-unstyled'>
+            <ul className='list-unstyled scroll-box users-height'>
                 {activeUsers ? activeUsers.map((user, index) =>
                     <li key={index} >
-                        <div className="row align-items-center">
+                        <div className="row align-items-center gx-0">
                             <div className="col-1 ">
                                 <img src={activeUserImg} className={`${style.activeUserImg} my-3 rounded-circle me-3`} alt="" />
                             </div>

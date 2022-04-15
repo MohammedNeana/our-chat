@@ -3,6 +3,7 @@
 body {
 	font-family: 'Montserrat Alternates', sans-serif !important;
 	/* font-family: 'Playfair Display', serif !important; */
+	overflow-y: hidden;
 }
 .nav-item .nav-link {
 	cursor: pointer !important;
@@ -15,4 +16,33 @@ body {
 .offcanvas {
 	position: absolute !important;
 	width: auto !important;
+}
+.scroll-box {
+	overflow-y: scroll;
+}
+.users-height {
+	height: 75vh;
+}
+@media screen and (max-width: 992px) {
+	.users-height {
+		height: 90vh;
+	}
+}
+.mssg-height {
+	height: 62vh;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px !important;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px !important;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 4px !important;
 }
