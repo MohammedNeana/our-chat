@@ -6,6 +6,11 @@ import userImg from '../../images/testimonial-2.jpg'
 
 export default function RecivedMessage(props) {
 
+    // [newMssg , setNewMssg] = useS
+
+    useEffect(() => {
+
+    }, [props.mssg])
     return <>
         <div className="chat">
             <div className='float-end'>
